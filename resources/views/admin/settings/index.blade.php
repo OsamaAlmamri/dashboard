@@ -46,7 +46,7 @@
 			</div>
 		</div>
 
-	 	<form class="col-12 row " id="validate-form" method="POST" action="{{route('admin.settings.update')}}" enctype="multipart/form-data" >
+	 	<form class="col-12 row " id="validate-form" method="POST" action="{{route('admin.settings.update',$settings)}}" enctype="multipart/form-data" >
 	 	@csrf
 	 	@method("PUT")
 	 	
@@ -90,7 +90,7 @@
 
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 		 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
-		 				لوجو الموقع
+		 				لوجو الموقع (200*200)
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
 		 				<input type="file" name="website_logo" class="form-control" >
@@ -101,7 +101,7 @@
 		 		</div>
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 		 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
-		 				اللوجو عريض
+		 				اللوجو عريض (500*200)
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
 		 				<input type="file" name="website_wide_logo" class="form-control" >
@@ -112,7 +112,7 @@
 		 		</div>
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 		 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
-		 				الصورة المصغرة
+		 				الصورة المصغرة (50*50)
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
 		 				<input type="file" name="website_icon" class="form-control" >
@@ -125,7 +125,7 @@
 	 		<div class="col-12 row p-0 taber" id="appearance-tab">
 		 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 		 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
-		 				غلاف الموقع
+		 				غلاف الموقع (800*500)
 		 			</div>
 		 			<div class="col-12 col-lg-9 px-2">
 		 				<input type="file" name="website_cover" class="form-control" >
@@ -293,30 +293,7 @@
 
 	 	</div>
 	 	<div class="col-12 row p-0 taber" id="pages-tab">
-	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
-	 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
-	 				سياسة الخصوصية
-	 			</div>
-	 			<div class="col-12 col-lg-9 px-2">
-	 				<textarea  name="privacy_page" class="form-control editor with-file-explorer">{{$settings->privacy_page}}</textarea>
-	 			</div> 
-	 		</div>
-	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
-	 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
-	 				شروط الإستخدام
-	 			</div>
-	 			<div class="col-12 col-lg-9 px-2">
-	 				<textarea  name="terms_page" class="form-control editor with-file-explorer">{{$settings->terms_page}}</textarea>
-	 			</div> 
-	 		</div>
-	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
-	 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
-	 				من نحن
-	 			</div>
-	 			<div class="col-12 col-lg-9 px-2">
-	 				<textarea  name="about_page" class="form-control editor with-file-explorer">{{$settings->about_page}}</textarea>
-	 			</div> 
-	 		</div>
+
 	 		<div class="col-12 px-0 d-flex mb-3 row pb-3">
 	 			<div class="col-12 col-lg-3 px-2 text-lg-end pt-1 pb-3 pb-lg-0">
 	 				تواصل معنا

@@ -57,6 +57,24 @@ class User extends Authenticatable
             return env('STORAGE_URL').'/uploads/users/'.$this->avatar;
     }
     
-
+    public function scopeWithoutTimestamps()
+    {
+        $this->timestamps = false;
+        return $this;
+    }
+    public function contacts(){
+        return $this->hasMany(\App\Models\Contact::class);
+    }
+    public function articles(){
+        return $this->hasMany(\App\Models\Article::class);
+    }
+    public function traffics(){
+        return $this->hasMany(\App\Models\RateLimit::class);
+    }
+    public function report_errors(){
+        return $this->hasMany(\App\Models\ReportError::class);
+    }
+    
+    
 
 }

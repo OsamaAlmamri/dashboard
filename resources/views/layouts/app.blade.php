@@ -10,7 +10,7 @@
   
     @include('seo.index')
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/cust-fonts.css">
-    <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/fontawsome.min.css">
+    <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://nafezly.com/css/responsive-font.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
@@ -22,7 +22,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('/css/jquery.fileuploader-theme-dragdrop.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('/css/main.css')}}">
     {!!$settings->header_code!!}
-    @notifyCss
     @livewireStyles
     @if(auth()->check())
         @php
@@ -37,6 +36,25 @@
         body,*{
             direction: rtl;
             text-align: start;
+            
+        }
+        html{
+            font-size: 16px;
+        }
+        /**:not(.fileuploader):not([class^=fa]):not([class^=vj]):not([class^=tie-]) {
+            font-family: dubai, sans-serif;
+        }*/
+        .start-head {
+            height: 20px;
+            width: 12px;
+            display: inline-block;
+            background: #0194fe;
+            position: relative;
+            top: 5px;
+            margin-left: 5px;
+        }
+        .main-box-stylex{
+            box-shadow: 0 8px 16px 0 rgb(10 14 29 / 2%), 0 8px 64px 0 rgb(119 119 119 / 8%);
         }
     </style>
     @yield('styles')
@@ -100,6 +118,20 @@
                 </div>
             </div>
         </nav>
+        @if(flash()->message)
+            <div style="position: absolute;z-index: 4444444444444;left: 35px;top: 80px;max-width: calc(100% - 70px);padding: 16px 22px;border-radius: 7px;overflow: hidden;width: 273px;border-right: 8px solid #374b52;background: #2196f3;color: #fff;cursor: pointer;"  onclick="$(this).slideUp();">
+                <span class="fas fa-info-circle"></span> {{ flash()->message }} 
+            </div>
+        @endif 
+        <div class="col-12 justify-content-end d-flex">
+            @if($errors->any())
+            <div class="col-12" style="position: absolute;top: 80px;left: 10px;">
+                {!! implode('', $errors->all('<div class="alert-click-hide alert alert-danger alert alert-danger col-9 col-xl-3 rounded-0 mb-1" style="position: fixed!important;z-index: 11;opacity:.9;left:25px;cursor:pointer;" onclick="$(this).fadeOut();">:message</div>')) !!}
+            </div>
+            @endif
+        </div>
+        
+
         <main class="p-0">
             @yield('content')
         </main>
@@ -118,7 +150,6 @@
     <script src="{{asset('/js/favicon_notification.js')}}"></script>
     <script src="{{asset('/js/main.js')}}"></script>
     @livewireScripts
-    @notifyJs
     @include('layouts.scripts')
     @yield('scripts')
     {!!$settings->footer_code!!}
