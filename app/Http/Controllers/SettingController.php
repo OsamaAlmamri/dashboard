@@ -47,6 +47,7 @@ class SettingController extends Controller
             'header_code'=>$request->header_code,
             'footer_code'=>$request->footer_code,
             'robots_txt'=>$request->robots_txt,
+            'dashboard_dark_mode'=>$request->dashboard_dark_mode==1?1:0
         ]);
         
         if($request->hasFile('website_logo')){
@@ -109,7 +110,7 @@ class SettingController extends Controller
             ])['filename'];
             \App\Models\Setting::query()->update(['website_cover'=>$file]);
         }
-        flash()->success('تم تحديث الإعدادات بنجاح','عملية ناجحة');
+        toastr()->success('تم تحديث الإعدادات بنجاح','عملية ناجحة');
         return redirect()->back();
 
     }

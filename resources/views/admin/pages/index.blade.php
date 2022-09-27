@@ -8,7 +8,7 @@
 				<div class="col-12 col-lg-4 py-3 px-3">
 					<span class="fas fa-pages"></span> الصفحات
 				</div>
-				<div class="col-12 col-lg-4 p-2">
+				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
 					@can('create',\App\Models\Page::class)
@@ -24,7 +24,7 @@
 		<div class="col-12 py-2 px-2 row">
 			<div class="col-12 col-lg-4 p-2">
 				<form method="GET">
-					<input type="text" name="q" class="form-control" placeholder="بحث ... ">
+					<input type="text" name="q" class="form-control" placeholder="بحث ... " value="{{request()->get('q')}}">
 				</form>
 			</div>
 		</div>

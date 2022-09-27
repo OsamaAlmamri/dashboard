@@ -8,7 +8,7 @@
 				<div class="col-12 col-lg-4 py-3 px-3">
 					<span class="fas fa-users"></span>	المستخدمين
 				</div>
-				<div class="col-12 col-lg-4 p-2">
+				<div class="col-12 col-lg-4 p-0">
 				</div>
 				<div class="col-12 col-lg-4 p-2 text-lg-end">
 					@can('create',\App\Models\User::class)
@@ -24,7 +24,7 @@
 		<div class="col-12 py-2 px-2 row">
 			<div class="col-12 col-lg-4 p-2">
 				<form method="GET">
-					<input type="text" name="q" class="form-control" placeholder="بحث ... ">
+					<input type="text" name="q" class="form-control" placeholder="بحث ... " value="{{request()->get('q')}}">
 				</form>
 			</div>
 		</div>
@@ -55,6 +55,21 @@
 							</span>
 							</a>
 							@endif
+
+							
+
+							@can('create-notifications')
+							<a href="{{route('admin.notifications.index',['user_id'=>$user->id])}}">
+							<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
+								<span class="far fa-bells"></span> الاشعارات
+							</span>
+							</a>
+							<a href="{{route('admin.notifications.create',['user_id'=>$user->id])}}">
+							<span class="btn  btn-outline-primary btn-sm font-1 mx-1">
+								<span class="far fa-bell"></span>
+							</span>
+							</a> 
+							@endcan
 
 							@can('update',$user)
 							<a href="{{route('admin.users.edit',$user)}}">

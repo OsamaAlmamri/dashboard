@@ -16,7 +16,6 @@ use App\Http\Controllers\RedirectionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TrafficsController;
-use App\Http\Controllers\FooterLinkController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\MenuLinkController;
@@ -28,6 +27,12 @@ use App\Http\Controllers\AnnouncementController;
 
 Auth::routes();
 Route::get('/', function () {return view('front.index');})->name('home');
+
+
+
+
+
+
 
 Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->group(function () {
 
@@ -57,8 +62,6 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::get('traffics/{traffic}/logs',[TrafficsController::class,'logs'])->name('traffics.logs');
         Route::get('error-reports',[TrafficsController::class,'error_reports'])->name('traffics.error-reports');
         Route::get('error-reports/{report}',[TrafficsController::class,'error_report'])->name('traffics.error-report');
-        Route::post('footer-links/order',[FooterLinkController::class,'order'])->name('footer-links.order');
-        Route::resource('footer-links',FooterLinkController::class);
         Route::prefix('settings')->name('settings.')->group(function () {
             Route::get('/',[SettingController::class,'index'])->name('index');
             Route::put('/{settings}/update',[SettingController::class,'update'])->name('update');
@@ -81,8 +84,10 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
 
     Route::prefix('notifications')->name('notifications.')->group(function () {
         Route::get('/',[NotificationsController::class,'index'])->name('index');
-        Route::get('/ajax',[NotificationsController::class,'notifications_ajax'])->name('ajax');
-        Route::post('/see',[NotificationsController::class,'notifications_see'])->name('see');
+        Route::get('/ajax',[NotificationsController::class,'ajax'])->name('ajax');
+        Route::post('/see',[NotificationsController::class,'see'])->name('see');
+        Route::get('/create',[NotificationsController::class,'create'])->name('create');
+        Route::post('/create',[NotificationsController::class,'store'])->name('store');
     });
     
 });
