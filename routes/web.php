@@ -40,7 +40,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
 
     Route::middleware(['CheckRole:ADMIN'])->group(function () {
 
-        
+
         Route::resource('announcements',AnnouncementController::class);
         Route::resource('files',FileController::class);
         Route::post('contacts/resolve',[ContactController::class,'resolve'])
@@ -89,7 +89,7 @@ Route::prefix('admin')->middleware(['auth','ActiveAccount'])->name('admin.')->gr
         Route::get('/create',[NotificationsController::class,'create'])->name('create');
         Route::post('/create',[NotificationsController::class,'store'])->name('store');
     });
-    
+
 });
 
 
@@ -97,7 +97,7 @@ Route::get('blocked',[HelperController::class,'blocked_user'])->name('blocked');
 Route::get('robots.txt',[HelperController::class,'robots']);
 Route::get('manifest.json',[HelperController::class,'manifest'])->name('manifest');
 Route::get('sitemap.xml',[SiteMapController::class,'sitemap']);
-Route::get('sitemaps/links','SiteMapController@custom_links');
+Route::get('sitemaps/links',[SiteMapController::class,'custom_links']);
 Route::get('sitemaps/{name}/{page}/sitemap.xml',[SiteMapController::class,'viewer']);
 
 

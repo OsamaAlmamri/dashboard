@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+    <url>
+        <loc>https://key.erum.ae/</loc>
+        <lastmod>2022-06-17T14:51:12+00:00</lastmod>
+        <image:image>
+            <image:loc>https://key.erum.ae/1.jpg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://key.erum.ae/4.jpg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://key.erum.ae/6.jpg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://key.erum.ae/car.jpg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://key.erum.ae/jda.jpg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://key.erum.ae/key.jpg</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://key.erum.ae/3.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://key.erum.ae/jda.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://key.erum.ae/5.jfif</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://key.erum.ae/2.jfif</image:loc>
+        </image:image>
+    </url>
+
+
+</urlset>
